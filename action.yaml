@@ -1,0 +1,22 @@
+name: 'Vault Secrets App Fetcher'
+description: 'Fetch secrets from HashiCorp Vault and export them as environment variables for GitHub Actions workflows.'
+author: 'Wisdom Bukhosi Moyo'
+branding:
+  icon: 'lock'  
+  color: 'blue'  
+inputs:
+  hcp_client_id:
+    description: 'HCP Client ID'
+    required: true
+  hcp_client_secret:
+    description: 'HCP Client Secret'
+    required: true
+  project_url:
+    description: 'URL to the HCP Vault project secrets endpoint'
+    required: true
+  secrets:
+    description: 'Secret mappings in format: "hcpSecretName | ENV_VAR_NAME;"'
+    required: true
+runs:
+  using: 'node20'
+  main: 'dist/main.js'

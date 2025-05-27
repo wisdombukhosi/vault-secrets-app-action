@@ -1,0 +1,22 @@
+{
+  "name": "hcp-vault-secrets-cli",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/main.ts -o dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "axios": "^1.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@vercel/ncc": "^0.38.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
