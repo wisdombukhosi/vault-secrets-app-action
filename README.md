@@ -2,7 +2,7 @@
 
 **Fetch secrets from HashiCorp Vault Secrets App into your GitHub Actions workflows.**
 
-This GitHub Action retrieves and maps secrets from a HashiCorp Cloud Platform (HCP) Vault Secrets App using `HCP_CLIENT_ID`, `HCP_CLIENT_SECRET`, and your app's `PROJECT_URL`. It is designed to be a secure, read-only utility for loading secrets into your CI/CD environment.
+This GitHub Action retrieves and maps secrets from a HashiCorp Cloud Platform (HCP) Vault Secrets App using `HCP_CLIENT_ID`, `HCP_CLIENT_SECRET`, and your app's `HCP_PROJECT_URL`. It is designed to be a secure, read-only utility for loading secrets into your CI/CD environment.
 
 ---
 
@@ -22,8 +22,8 @@ This GitHub Action retrieves and maps secrets from a HashiCorp Cloud Platform (H
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | `HCP_CLIENT_ID`     | HCP service principal client ID                                                                                                                 | ✅ Yes   |
 | `HCP_CLIENT_SECRET` | HCP service principal client secret                                                                                                             | ✅ Yes   |
-| `PROJECT_URL`       | Full URL to your Vault Secrets App (e.g. `https://api.cloud.hashicorp.com/secrets/v1beta1/projects/PROJECT_ID/secrets`)                         | ✅ Yes   |
-| `SECRETS`           | Mapping of secrets to use, in the format: `hcpSecretName \| ENV_VAR;` (e.g. `my-db-password \| DB_PASSWORD; another-secret \| OTHER_ENV;`)      | ✅ Yes   |
+| `HCP_PROJECT_URL`       | Full URL to your Vault Secrets App (e.g. `https://api.cloud.hashicorp.com/secrets/v1beta1/projects/PROJECT_ID/secrets`)                         | ✅ Yes   |
+| `HCP_SECRETS`           | Mapping of secrets to use, in the format: `hcpSecretName \| ENV_VAR;` (e.g. `my-db-password \| DB_PASSWORD; another-secret \| OTHER_ENV;`)      | ✅ Yes   |
 
 ---
 
@@ -35,20 +35,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch secrets from Vault Secrets App
-        uses: wisdombukhosi/vault-secrets-app-action@v1
+        uses: wisdombukhosi/hcp-vault-secrets-app@v1
         env:
-          HCP_CLIENT_ID: ${{ secrets.HCP_CLIENT_ID }}
-          HCP_CLIENT_SECRET: ${{ secrets.HCP_CLIENT_SECRET }}
-          PROJECT_URL: ${{ secrets.HCP_PROJECT_URL }}
-          SECRETS: |
+          hcp_client_id: ${{ secrets.HCP_CLIENT_ID }}
+          hcp_client_secret: ${{ secrets.HCP_CLIENT_SECRET }}
+          hcp_project_url: ${{ secrets.HCP_PROJECT_URL }}
+          secrets: |
             digitalocean_api_token | DO_API_TOKEN;
-            terraform_token_vpc | TF_TOKEN_VPC;
+            terraform_token_vpc | TF_VPC_TOKEN;
 ````
 
 This will:
 
 * Fetch the secrets by name from the Vault Secrets App
-* Export them as `DO_API_TOKEN`, `TF_TOKEN_VPC` environment variables
+* Export them as `DO_API_TOKEN`, `TF_VPC_TOKEN` environment variables
 
 ---
 

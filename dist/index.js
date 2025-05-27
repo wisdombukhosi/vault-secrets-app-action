@@ -29106,8 +29106,8 @@ const parser_1 = __nccwpck_require__(7196);
 function getConfig() {
     const clientId = core.getInput('hcp_client_id', { required: true });
     const clientSecret = core.getInput('hcp_client_secret', { required: true });
-    const projectUrl = core.getInput('project_url', { required: true });
-    const secretsRaw = core.getInput('secrets', { required: true });
+    const projectUrl = core.getInput('hcp_project_url', { required: true });
+    const secretsRaw = core.getInput('hcp_secrets', { required: true });
     return {
         clientId,
         clientSecret,
