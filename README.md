@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch secrets from Vault Secrets App
-        uses: wisdombukhosi/hcp-vault-secrets-app@v1
+        uses: wisdombukhosi/vault-secrets-app-action@v1
         env:
           hcp_client_id: ${{ secrets.HCP_CLIENT_ID }}
           hcp_client_secret: ${{ secrets.HCP_CLIENT_SECRET }}
