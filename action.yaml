@@ -3,7 +3,7 @@ description: 'Fetch secrets from HashiCorp Vault and export them as environment 
 author: 'Wisdom Bukhosi Moyo'
 branding:
   icon: 'lock'  
-  color: 'blue'  
+  color: 'purple'  
 inputs:
   hcp_client_id:
     description: 'HCP Client ID'
