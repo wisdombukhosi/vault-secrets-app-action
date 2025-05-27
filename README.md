@@ -36,11 +36,11 @@ jobs:
     steps:
       - name: Fetch secrets from Vault Secrets App
         uses: wisdombukhosi/vault-secrets-app-action@v1
-        env:
+        with:
           hcp_client_id: ${{ secrets.HCP_CLIENT_ID }}
           hcp_client_secret: ${{ secrets.HCP_CLIENT_SECRET }}
           hcp_project_url: ${{ secrets.HCP_PROJECT_URL }}
-          secrets: |
+          hcp_secrets: |
             digitalocean_api_token | DO_API_TOKEN;
             terraform_token_vpc | TF_VPC_TOKEN;
 ````
