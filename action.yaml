@@ -1,4 +1,4 @@
-name: 'HashiCorp Vault Secrets App Fetcher'
+name: 'Vault Secrets App Action'
 description: 'Fetch secrets from HashiCorp Vault and export them as environment variables for GitHub Actions workflows.'
 author: 'Wisdom Bukhosi Moyo'
 branding:
