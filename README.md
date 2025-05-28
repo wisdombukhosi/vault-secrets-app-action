@@ -62,6 +62,6 @@ This will:
 
 ## 🪪 License
 
-MIT © tippr-org
+MIT
 
 ---
